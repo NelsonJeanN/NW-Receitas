@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buscador de Receitas</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="app">
+    <img src="NW Receitas!.png" alt="NW Receitas" id="logo" />
+    <div id="feedback" style="display: none;"></div>
+    <p id="welcome"></p>
+    <div>
+      <button onclick="logout()">Sair</button>
+      <a href="favoritos.html"><button>Ver Favoritos</button></a>
+    </div>
+
+    <br>
+
+    <input type="text" id="recipeInput" placeholder="Digite o nome da receita" /><br>
+    <button id="searchBtn">Buscar Receita</button>
+    <button id="favBtn" style="display:none;">Salvar como Favorita</button>
+
+    <div id="result">Sua receita aparecerá aqui!</div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
