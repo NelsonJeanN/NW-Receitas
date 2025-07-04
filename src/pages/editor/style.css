@@ -1,0 +1,543 @@
+:root {
+  --cor-primaria: #b23c17;
+  --cor-secundaria: #fff7e6;
+  --cor-fundo: #fdf5e6;
+  --cor-texto: #3b2f2f;
+  --cor-link: #b23c17;
+  --cor-feedback-sucesso: #4CAF50;
+  --cor-feedback-erro: #d32f2f;
+  --cor-borda-input: #ccc;
+  --cor-foco-input: #b23c17;
+  --cor-sombra: rgba(0, 0, 0, 0.1);
+  --cor-item-sugestao: #f0e9d6;
+}
+
+/* Globais */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--cor-fundo);
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  color: var(--cor-primaria);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+a {
+  color: var(--cor-link);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Contêiner Principal */
+#app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background-color: var(--cor-secundaria);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px var(--cor-sombra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo */
+#logo {
+  max-width: 800px;
+  margin-bottom: 2rem;
+  display: block;
+  height: auto;
+}
+
+/* Feedback */
+#feedback, #login-msg, #reg-msg, #dietPlanFeedback {
+  padding: 10px 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+#feedback:not([style*="display: none"]),
+#login-msg:not([style*="display: none"]),
+#reg-msg:not([style*="display: none"]),
+#dietPlanFeedback:not([style*="display: none"]) {
+  display: block !important;
+}
+
+#feedback.success, #login-msg.success, #reg-msg.success, #dietPlanFeedback.success {
+  background-color: var(--cor-feedback-sucesso);
+  color: white;
+}
+
+#feedback.error, #login-msg.error, #reg-msg.error, #dietPlanFeedback.error {
+  background-color: var(--cor-feedback-erro);
+  color: white;
+}
+
+/* Boas-vindas */
+#welcome {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+}
+
+/* Botões de Cabeçalho */
+.header-buttons {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Seções Gerais */
+.search-section,
+.filters-section,
+.suggestions-section,
+.diet-calendar-section {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Campos de Entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--cor-borda-input);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  box-sizing: border-box;
+}
+input:focus,
+select:focus {
+  border-color: var(--cor-foco-input);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(178, 60, 23, 0.2);
+}
+
+/* Botões */
+button {
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 5px;
+}
+button:hover {
+  background-color: #9c3012;
+  transform: translateY(-2px);
+}
+button:active {
+  transform: translateY(0);
+}
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Filtros Avançados */
+.filter-category {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+.filter-category h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+}
+.filter-category label {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+}
+.filter-category input[type="checkbox"] {
+  margin-right: 5px;
+  width: auto;
+}
+
+/* Sugestões */
+#suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.suggestion-item {
+  background-color: var(--cor-item-sugestao);
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+.suggestion-item:hover {
+  background-color: #e0d5c0;
+  transform: translateY(-1px);
+}
+
+/* Resultado da Receita */
+#result {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  min-height: 150px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow-x: hidden;
+}
+
+#result img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#result h3 {
+  color: var(--cor-primaria);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#result h4 {
+  color: var(--cor-texto);
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.15rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+#result ul, #result ol {
+  list-style-position: inside;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+#result li {
+  margin-bottom: 8px;
+  color: var(--cor-texto);
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+#result p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+/* Código e Pré-formatação */
+#result pre,
+#result code,
+#conteudoReceita pre,
+#conteudoReceita code {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Calendário */
+.diet-calendar-section {
+  text-align: center;
+}
+
+.diet-plan-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.diet-calendar {
+  margin-top: 2rem;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 100%;
+  min-width: 700px;
+}
+
+.calendar-header {
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 10px 5px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.calendar-day {
+  background-color: var(--cor-secundaria);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 120px;
+  text-align: left;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 5px;
+}
+
+.calendar-day.empty {
+  background-color: #f0f0f0;
+  border: 1px dashed #ccc;
+  visibility: hidden;
+}
+
+.day-number {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+}
+
+.calendar-day strong {
+  color: var(--cor-texto);
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.calendar-day span {
+  display: block;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  flex-grow: 1;
+}
+
+/* Favoritos */
+#favoritesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.favorite-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: calc(33% - 20px);
+  min-width: 280px;
+  box-shadow: 0 4px 10px var(--cor-sombra);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favorite-item h3 {
+  color: var(--cor-primaria);
+  margin-top: 0;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.favorite-item p {
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  white-space: normal;
+}
+
+.favorite-item .favorite-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.favorite-item button {
+  flex-grow: 1;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.favorite-item .delete-button {
+  background-color: var(--cor-feedback-erro);
+}
+.favorite-item .delete-button:hover {
+  background-color: #c02a2a;
+}
+
+/* Conteúdo Expandido de Receita */
+#conteudoReceita {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  min-height: 150px;
+  white-space: normal;
+  display: none;
+}
+
+/* Formulários */
+form {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 2rem;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--cor-sombra);
+  box-sizing: border-box;
+}
+form input,
+form button {
+  width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  #app {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .header-buttons {
+    flex-direction: column;
+  }
+  .favorite-item {
+    width: calc(50% - 20px);
+    min-width: 250px;
+  }
+  .calendar-grid {
+    min-width: unset;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  #app {
+    padding: 1rem;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  input,
+  select {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .favorite-item {
+    width: 100%;
+  }
+  .calendar-day {
+    min-height: 100px;
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+  .day-number {
+    font-size: 1rem;
+  }
+}
+
+/* Transição Filtros Avançados */
+.filters-section {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out, margin-bottom 0.5s ease-out, border 0.5s ease-out;
+}
+.filters-section.visible {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+}

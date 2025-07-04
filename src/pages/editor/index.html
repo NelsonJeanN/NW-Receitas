@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Receitas</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="app">
+        <img src="NW Receitas!.png" alt="NW Receitas" id="logo" />
+        <div id="feedback" style="display: none;"></div>
+        <p id="welcome"></p>
+        <div class="header-buttons">
+            <button onclick="logout()">Sair</button>
+            <a href="favoritos.html"><button>Ver Favoritos</button></a>
+        </div>
+
+        <br>
+
+        <div class="search-section">
+            <input type="text" id="recipeInput" placeholder="Digite o nome da receita" /><br>
+            <button id="searchBtn">Buscar Receita</button>
+            <button id="favBtn" style="display:none;">Salvar como Favorita</button>
+        </div>
+
+        <button id="toggleFiltersBtn">Mostrar Filtros Avançados</button>
+
+        <div id="filtersSection" class="filters-section">
+            <h3>Filtros Avançados</h3>
+
+            <div class="filter-category">
+                <h4>Restrições Alimentares:</h4>
+                <label><input type="checkbox" name="restriction" value="vegano"> Vegano</label>
+                <label><input type="checkbox" name="restriction" value="vegetariano"> Vegetariano</label>
+                <label><input type="checkbox" name="restriction" value="sem glúten"> Sem Glúten</label>
+                <label><input type="checkbox" name="restriction" value="sem lactose"> Sem Lactose</label>
+                <label><input type="checkbox" name="restriction" value="cetogênico"> Cetogênico</label>
+            </div>
+
+            <div class="filter-category">
+                <h4>Tipo de Dieta:</h4>
+                <label><input type="checkbox" name="diet" value="low carb"> Low Carb</label>
+                <label><input type="checkbox" name="diet" value="paleo"> Paleo</label>
+                <label><input type="checkbox" name="diet" value="mediterrânea"> Mediterrânea</label>
+                <label><input type="checkbox" name="diet" value="vegana"> Vegana</label>
+                <label><input type="checkbox" name="diet" value="vegetariana"> Vegetariana</label>
+            </div>
+
+            <div class="filter-category">
+                <h4>Tipo de Refeição:</h4>
+                <label><input type="checkbox" name="mealType" value="café da manhã"> Café da Manhã</label>
+                <label><input type="checkbox" name="mealType" value="almoço"> Almoço</label>
+                <label><input type="checkbox" name="mealType" value="jantar"> Jantar</label>
+                <label><input type="checkbox" name="mealType" value="lanche"> Lanche</label>
+                <label><input type="checkbox" name="mealType" value="sobremesa"> Sobremesa</label>
+            </div>
+
+            <div class="filter-category">
+                <h4>Culinária:</h4>
+                <label><input type="checkbox" name="cuisine" value="brasileira"> Brasileira</label>
+                <label><input type="checkbox" name="cuisine" value="italiana"> Italiana</label>
+                <label><input type="checkbox" name="cuisine" value="asiática"> Asiática</label>
+                <label><input type="checkbox" name="cuisine" value="mexicana"> Mexicana</label>
+                <label><input type="checkbox" name="cuisine" value="francesa"> Francesa</label>
+            </div>
+
+            <div class="filter-category">
+                <h4>Tempo de Preparo:</h4>
+                <select id="prepTimeSelect">
+                    <option value="">Qualquer</option>
+                    <option value="até 15 minutos">Até 15 minutos</option>
+                    <option value="até 30 minutos">Até 30 minutos</option>
+                    <option value="até 1 hora">Até 1 hora</option>
+                    <option value="mais de 1 hora">Mais de 1 hora</option>
+                </select>
+            </div>
+
+            <div class="filter-category">
+                <h4>Dificuldade:</h4>
+                <select id="difficultySelect">
+                    <option value="">Qualquer</option>
+                    <option value="fácil">Fácil</option>
+                    <option value="médio">Médio</option>
+                    <option value="difícil">Difícil</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="suggestions" class="suggestions-section">
+            </div>
+
+        <div id="result">Sua receita aparecerá aqui!</div>
+
+        <div class="diet-calendar-section">
+            <h3>Meu Plano de Dieta</h3>
+            <div class="diet-plan-controls">
+                <select id="dietTypeSelect">
+                    <option value="">Selecione a Dieta</option>
+                    <option value="low carb">Low Carb</option>
+                    <option value="keto">Keto</option>
+                    <option value="mediterrânea">Mediterrânea</option>
+                    <option value="paleo">Paleo</option>
+                    <option value="dukan">Dukan</option>
+                    <option value="vegana">Vegana</option>
+                    <option value="vegetariana">Vegetariana</option>
+                    </select>
+                <button id="generateDietPlanBtn">Gerar Plano de Dieta</button>
+                <button id="viewDietPlanBtn" style="display:none;">Ver Meu Plano</button>
+            </div>
+            <div id="dietCalendar" class="diet-calendar">
+                </div>
+            <div id="dietPlanFeedback" class="diet-plan-feedback" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
