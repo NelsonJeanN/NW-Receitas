@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <img src="NW Receitas!.png" alt="NW Receitas" id="logo" />
+    <h2>Registrar</h2>
+
+    <form>
+      <input id="reg-name" type="text" placeholder="Nome" /><br>
+      <input id="reg-email" type="email" placeholder="E-mail" /><br>
+      <input id="reg-pass" type="password" placeholder="Senha (mínimo 6 caracteres)" /><br>
+      <button type="button" onclick="register()">Registrar</button>
+    </form>
+
+    <p id="reg-msg"></p>
+    <a href="login.html">Voltar</a>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>
